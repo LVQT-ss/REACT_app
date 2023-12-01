@@ -4,9 +4,11 @@ class MyComponent extends React.Component {
 
 
     //key:value
+    //state lưu lại trạng thái ứng dụng không cần load lại trang 
+    //setState để thay đổi lại set dữ liệu thay đổi state
     state = {
         name : ' ethinhle ',
-        chanel:'hoi dan it '
+        channel:'hoi dan it '
     }
     // return block 
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
@@ -14,31 +16,33 @@ class MyComponent extends React.Component {
 
     handleOnChangeName = (event) => { 
         this.setState({
-            name: event.target.value
+            name: event.target.value,
+            channel:'abc'
         })
     }
 
     handleClickButton=()=>{
-        console.log('hit the button ')
         alert('click me')
     }
 
     render() {
-        let name = 'Eric';
+        console.log('>>> call render ',this.state)
 
-        console.log('my name is : ', name); // Move console.log outside of the return statement
 
         return (
             <>
             <div className='first'> 
+            
             <input value={this.state.name} type='text'
+
             onChange={(event) => this.handleOnChangeName(event)}
             />
             this is not a div </div>
             <div>
                 hello my component my name is {this.state.name}
             </div>
-            <div>my ytb is sht {this.state.chanel} </div>
+            <div>my ytb is sht {this.state.channel} </div>
+
             <div className='third'>
                 <button onClick={() => this.handleClickButton()}>clickme </button>
             </div>
