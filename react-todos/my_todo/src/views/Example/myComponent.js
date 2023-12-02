@@ -8,8 +8,12 @@ class MyComponent extends React.Component {
     //setState để thay đổi lại set dữ liệu thay đổi state
     state = {
         firstName:'',
-        lastName:''
-
+        lastName:'',
+        arrJobs:[
+            {id:'abcJob1',title:'developer',salary:'500$'},
+            {id:'abcJob2',title:'tester',salary:'400$'},
+            {id:'abcJob3',title:'project manafer',salary:'1000$'}
+        ]
     }
     // return block 
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
@@ -55,9 +59,13 @@ class MyComponent extends React.Component {
                     onClick={(event)=> this.handleSubmit(event)}
                     />
                                     </form>
-                                    <ChildComponent name={'child one'}/>
-                                    <ChildComponent name={'child two'}/>
-                                    <ChildComponent name={'child three'}/>
+                                    <ChildComponent 
+                                    name={this.state.firstName}
+                                    age={'20'}
+                                    address={'sai gone'}
+                                    arrJobs={this.state.arrJobs}
+                                    />
+
                                 </>
                                     );
     }
