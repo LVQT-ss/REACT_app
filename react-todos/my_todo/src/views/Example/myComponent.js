@@ -7,48 +7,58 @@ class MyComponent extends React.Component {
     //state lưu lại trạng thái ứng dụng không cần load lại trang 
     //setState để thay đổi lại set dữ liệu thay đổi state
     state = {
-        name : ' ethinhle ',
-        channel:'hoi dan it '
+        firstName:'',
+        lastName:''
+
     }
     // return block 
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
     // state là 1 object có key và value 
 
-    handleOnChangeName = (event) => { 
+    handleChangeFirstName = (event) =>{
         this.setState({
-            name: event.target.value,
-            channel:'abc'
+            firstName: event.target.value
         })
     }
-
-    handleClickButton=()=>{
-        alert('click me')
+    handleChangeLastName = (event) =>{
+        this.setState({
+            lastName: event.target.value
+        })
+    }
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('check data input :', this.state)
     }
 
     render() {
-        console.log('>>> call render ',this.state)
+        console.log('>>> call render ', this.state)
 
 
         return (
+           
             <>
-            <div className='first'> 
-            
-            <input value={this.state.name} type='text'
+                <form>
+                    <label htmlFor="fname">First name:</label><br/>
+                    <input 
+                        type="text" 
+                        value={this.state.firstName}
+                        onChange={(event) => this.handleChangeFirstName(event)}
+                        />
+                    <br />
+                    <label htmlFor="lname">Last name:</label><br />
+                    <input 
+                    type="text" 
+                    value={this.state.lastName} 
+                    onChange={(event) => this.handleChangeLastName(event)}
+                    /><br /><br />
+                    <input type="submit" 
+                    onClick={(event)=> this.handleSubmit(event)}
+                    />
+                                    </form>
 
-            onChange={(event) => this.handleOnChangeName(event)}
-            />
-            this is not a div </div>
-            <div>
-                hello my component my name is {this.state.name}
-            </div>
-            <div>my ytb is sht {this.state.channel} </div>
-
-            <div className='third'>
-                <button onClick={() => this.handleClickButton()}>clickme </button>
-            </div>
-            </>
-        );
+                                </>
+                                    );
     }
 }
 
-export default MyComponent;
+                                    export default MyComponent;
