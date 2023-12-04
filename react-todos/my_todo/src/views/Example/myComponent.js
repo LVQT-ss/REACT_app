@@ -17,8 +17,14 @@ class MyComponent extends React.Component {
     }
     addNewJob = (job) => {
         console.log('check job from parent : ',job)
+        // let currenJobs = this.state.arrJobs;
+        // currenJobs.push(job)
+
+
         this.setState({
+            //... là toán tử copy 
             arrJobs: [...this.state.arrJobs,job]
+            // arrJobs:currenJobs
         })
         
     }
@@ -26,7 +32,13 @@ class MyComponent extends React.Component {
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
     // state là 1 object có key và value 
 
-   
+   deleteAJob= (job) => { 
+    let currenJobs = this.state.arrJobs;
+    currenJobs = currenJobs.filter(item => item.id !== job.id);
+    this.setState({
+        arrJobs: currenJobs
+    })
+   }
  
 
     render() {
@@ -41,8 +53,8 @@ class MyComponent extends React.Component {
             />
               
                                     <ChildComponent 
-                                    
                                     arrJobs={this.state.arrJobs}
+                                    deleteAJob={this.deleteAJob}
                                     />
 
                                 </>
