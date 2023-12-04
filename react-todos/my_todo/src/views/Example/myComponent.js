@@ -15,6 +15,13 @@ class MyComponent extends React.Component {
             {id:'abcJob3',title:'project manafer',salary:'1000'}
         ]
     }
+    addNewJob = (job) => {
+        console.log('check job from parent : ',job)
+        this.setState({
+            arrJobs: [...this.state.arrJobs,job]
+        })
+        
+    }
     // return block 
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
     // state là 1 object có key và value 
@@ -29,7 +36,9 @@ class MyComponent extends React.Component {
         return (
            
             <>
-            <AddComponent/>
+            <AddComponent
+            addNewJob={this.addNewJob}
+            />
               
                                     <ChildComponent 
                                     
