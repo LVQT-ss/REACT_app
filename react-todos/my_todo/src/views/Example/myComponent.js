@@ -1,5 +1,6 @@
 import React from 'react';
 import ChildComponent from './ChildComponent';
+import AddComponent from './AddComponent';
 class MyComponent extends React.Component {
 
 
@@ -7,8 +8,7 @@ class MyComponent extends React.Component {
     //state lưu lại trạng thái ứng dụng không cần load lại trang 
     //setState để thay đổi lại set dữ liệu thay đổi state
     state = {
-        firstName:'',
-        lastName:'',
+      
         arrJobs:[
             {id:'abcJob1',title:'developer',salary:'500'},
             {id:'abcJob2',title:'tester',salary:'400'},
@@ -19,20 +19,8 @@ class MyComponent extends React.Component {
     // cách để bọc 2 div thì dùng react.fragment hoặc <></>
     // state là 1 object có key và value 
 
-    handleChangeFirstName = (event) =>{
-        this.setState({
-            firstName: event.target.value
-        })
-    }
-    handleChangeLastName = (event) =>{
-        this.setState({
-            lastName: event.target.value
-        })
-    }
-    handleSubmit = (event) => {
-        event.preventDefault()
-        console.log('check data input :', this.state)
-    }
+   
+ 
 
     render() {
         console.log('>>> call render ', this.state)
@@ -41,28 +29,10 @@ class MyComponent extends React.Component {
         return (
            
             <>
-                <form>
-                    <label htmlFor="fname">First name:</label><br/>
-                    <input 
-                        type="text" 
-                        value={this.state.firstName}
-                        onChange={(event) => this.handleChangeFirstName(event)}
-                        />
-                    <br />
-                    <label htmlFor="lname">Last name:</label><br />
-                    <input 
-                    type="text" 
-                    value={this.state.lastName} 
-                    onChange={(event) => this.handleChangeLastName(event)}
-                    /><br /><br />
-                    <input type="submit" 
-                    onClick={(event)=> this.handleSubmit(event)}
-                    />
-                                    </form>
+            <AddComponent/>
+              
                                     <ChildComponent 
-                                    name={this.state.firstName}
-                                    age={'20'}
-                                    address={'sai gone'}
+                                    
                                     arrJobs={this.state.arrJobs}
                                     />
 
