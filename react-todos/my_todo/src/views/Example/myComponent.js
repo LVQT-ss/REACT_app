@@ -39,8 +39,14 @@ class MyComponent extends React.Component {
         arrJobs: currenJobs
     })
    }
- 
-
+   
+   componentDidUpdate(prevProps,preState){
+    console.log('>> run didupdate','prev state',preState ,'current statte:' ,this.state)
+   }
+   // phần did  mount dùng để gọi api backend 
+   componentDidMount() {
+    console.log('>>> run component did mount ')
+   }
     render() {
         console.log('>>> call render ', this.state)
 
