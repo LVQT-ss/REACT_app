@@ -1,6 +1,7 @@
 import logo from './logo.svg';
 import './App.scss';
 import MyComponent from './Example/myComponent';
+import ListTodo from './Todos/ListTodo';
 /**
  * 
  *  REACT có 2 component : class component / function component ( funtion , arrow func)
@@ -12,11 +13,12 @@ const App = () => {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          simple TOTO Apps with REACTjs
         </p>
        
         
-        <MyComponent/>
+        {/* <MyComponent/> */}
+        <ListTodo />
         
       </header>
     </div>

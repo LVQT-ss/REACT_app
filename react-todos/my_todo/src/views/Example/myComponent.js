@@ -39,7 +39,7 @@ class MyComponent extends React.Component {
         arrJobs: currenJobs
     })
    }
-   
+   // dùng để sau khi khi muốn gọi api xử lí dữ liệu khi cần so sánh giữa hiện tại và tương lai . 
    componentDidUpdate(prevProps,preState){
     console.log('>> run didupdate','prev state',preState ,'current statte:' ,this.state)
    }
