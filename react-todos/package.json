@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "react-scripts": "^5.0.1",
+    "react-toastify": "^8.2.0",
     "sass": "^1.69.5"
   }
 }

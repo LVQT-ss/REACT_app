@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.scss';
 import MyComponent from './Example/myComponent';
 import ListTodo from './Todos/ListTodo';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 /**
  * 
  *  REACT có 2 component : class component / function component ( funtion , arrow func)
@@ -15,12 +17,13 @@ const App = () => {
         <p>
           simple TOTO Apps with REACTjs
         </p>
-       
-        
+
+
         {/* <MyComponent/> */}
         <ListTodo />
-        
+      
       </header>
+ 
     </div>
   );
 }

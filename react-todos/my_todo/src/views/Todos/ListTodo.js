@@ -1,7 +1,9 @@
 import React from "react";
 import './ListTodo.scss';
+import AddTodo from "./AddTodo";
+import {  toast } from 'react-toastify';
 
-class listTodo extends React.Component {
+class ListTodo extends React.Component {
     state = { 
         listTodo:[
             { id : 'todo1',title:'doing homework'},
@@ -9,38 +11,37 @@ class listTodo extends React.Component {
             { id : 'todo3',title:'fixing bug'},
         ]
     }
+
+    addNewTodo= (todo) => { 
+        this.setState({
+            listTodo : [...this.state.listTodo, todo]
+            
+        })
+        
+        toast.success("Wow so easy!");
+    }
+
     render(){
-              let { listTodo } = this.state;
-         //  let listTodo = this.state.listTodol
+        let { listTodo } = this.state;  // Corrected property name
         return (
       
         <div className="list-todo-container">
-            <div className="add-todo">
-                <input type="text"/>
-                <button type="button">Add</button>
-            </div>
+                <AddTodo
+                addNewTodo = {this.addNewTodo}
+                />
             <div className="list-todo-content">
-                    <div className="todo-child">
-                       <span>Todo 1</span> 
-                        <button>Edit</button>
-                        <button>Delete</button>
-                        </div>
-                        <div className="todo-child">
-                       <span>Todo 1</span> 
-                        <button>Edit</button>
-                        <button>Delete</button>
-                        </div>
-                        <div className="todo-child">
-                       <span>Todo 1</span> 
-                        <button>Edit</button>
-                        <button>Delete</button>
-                        </div>
-
-                   
+                {listTodo && listTodo.length > 0 && 
+                listTodo.map((item,index) => (
+                    <div className="todo-child" key={item.id}>
+                        <span>{index + 1 } - {item.title} </span> 
+                        <button className="edit">Edit</button>
+                        <button className="delete">Delete</button>
+                    </div>
+                ))}
             </div>
        </div>
         )
     }
 }
 
-export default listTodo;
+export default ListTodo;
