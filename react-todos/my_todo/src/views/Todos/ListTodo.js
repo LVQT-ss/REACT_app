@@ -22,6 +22,7 @@ class ListTodo extends React.Component {
         toast.success("Wow so easy!");
     }
     handleDeleteTodo= (todo) => { 
+
         let currentTodos = this.state.listTodo
         currentTodos = currentTodos.filter(item => item.id !== todo.id)
         this.setState({
@@ -30,8 +31,27 @@ class ListTodo extends React.Component {
         toast.success("Delete succed!");
     }
     handleEditTodo= (todo) =>{
+        let {editTodo}= this.state;
+        let isEmptyObject = Object.keys(editTodo).length===0;
+        //save
+        if(isEmptyObject === false && editTodo.id==todo.id){
+
+            return; 
+        }
+      
+
+        
+        //edit
         this.setState({
             editTodo: todo
+        })
+    }
+    
+    handleOnchangeEditTodo=(event)=>{
+        let editTodoCopy = {...this.state.editTodo};
+        editTodoCopy.title = event.target.value;
+        this.setState({
+            editTodo: editTodoCopy
         })
     }
 
@@ -55,7 +75,9 @@ class ListTodo extends React.Component {
                         <>
                         {editTodo.id === item.id ?
                         <span>
-                        {index + 1} - <input value={editTodo.title} />
+                        {index + 1} - <input value={editTodo.title}
+                        onChange={(event) => this.handleOnchangeEditTodo(event)}
+                        />
                          </span>
                          :
                          <span>{index +1 } - {item.title}</span>
@@ -64,8 +86,9 @@ class ListTodo extends React.Component {
                       
                              }
                         <button className="edit"
-                            onClick={() => this.handleEditTodo(item)}
-                        >Edit</button>
+                            onClick={() => this.handleEditTodo(item)}>
+                            {isEmptyObject ===false && editTodo.id === item.id ? 'Save':'Edit'}
+                        </button>
                         <button className="delete"
                             onClick={() => this.handleDeleteTodo(item)}
                         >Delete</button>
