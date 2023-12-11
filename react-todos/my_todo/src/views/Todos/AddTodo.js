@@ -1,4 +1,5 @@
 import React from "react";
+
 class AddTodo extends React.Component{
     state = { 
         title: ''
@@ -10,11 +11,8 @@ class AddTodo extends React.Component{
     })
     handleAddTodo= () => {
         if(!this.state.title) {
-            alert('missing tiele')
-            return
+            return 
             //undefined // null / empty => false 
-
-
         }
         let todo = { 
             id:Math.floor(Math.random() *10000),
