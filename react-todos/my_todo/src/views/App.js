@@ -4,6 +4,8 @@ import MyComponent from './Example/myComponent';
 import ListTodo from './Todos/ListTodo';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Home from './Example/Home';
+import Nav from './Nav/Nav';
 /**
  * 
  *  REACT có 2 component : class component / function component ( funtion , arrow func)
@@ -12,16 +14,17 @@ import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   return (
     <div className="App">
+      
       <header className="App-header">
+      <Nav/>
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          simple TOTO Apps with REACTjs
-        </p>
+        
 
 
         {/* <MyComponent/> */}
-        <ListTodo />
-
+        {/* <ListTodo /> */}
+        <Home/>
+           
       </header>
       <ToastContainer
         position="top-right"
