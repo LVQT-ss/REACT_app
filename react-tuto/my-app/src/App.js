@@ -1,5 +1,5 @@
 import React from 'react';
-
+import '/App.scss';
 class Welcome extends React.Component {
   render() {
     return <h1>Xin chào, {this.props.name}!</h1>;
