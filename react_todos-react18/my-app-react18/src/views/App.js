@@ -8,6 +8,7 @@ import Home from './Example/Home';
 import Nav from './Nav/Nav';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ListUser from './Users/ListUser';
+import DetailUser from './Users/DetailUser';
 const App = () => {
   return (
     <Router>
@@ -20,7 +21,8 @@ const App = () => {
             <Route path="/" exact element={<Home />} />
             <Route path="/todo" element={<ListTodo />} />
             <Route path='/about' element={<MyComponent/>}/>
-            <Route path='/user' element={<ListUser/>}/>
+            <Route path='/user' exact element={<ListUser/>}/>
+            <Route path='/user/:id' element={<DetailUser/>}/>
           </Routes>
         </header>
         <ToastContainer
