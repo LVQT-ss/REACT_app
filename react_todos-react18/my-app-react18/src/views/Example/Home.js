@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Color from "../HOC/Color";
+import logo from '../../assets/images/410097539_731075398566246_6443666808807303612_n.jpg';
 const Home = () => {
   //const navigate = useNavigate();
 
@@ -15,9 +16,16 @@ const Home = () => {
 //   }, [navigate]);
 
   return (
+    <>
+    
     <div>
       hoi dan it
     </div>
+    <div>
+      <img src={logo} style={{width:'200px',height:'200px',marginTop:'20px'}}/>
+    </div>
+    
+    </>
   );
 };
 
