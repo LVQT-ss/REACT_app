@@ -1,32 +1,28 @@
-import React, { useEffect } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import Color from "../HOC/Color";
 import logo from '../../assets/images/410097539_731075398566246_6443666808807303612_n.jpg';
-const Home = () => {
-  //const navigate = useNavigate();
+import { connect } from 'react-redux';
 
-//   useEffect(() => {
-//     const timeoutId = setTimeout(() => {
-//       console.log('Check timeout');
-//       navigate('/todo');
-//     }, 3000);
-
-//     // Clear the timeout on component unmount (cleanup)
-//     return () => clearTimeout(timeoutId);
-//   }, [navigate]);
+const Home = (props) => {
+  console.log('check props ', props.dataRedux);
 
   return (
     <>
-    
-    <div>
-      hoi dan it
-    </div>
-    <div>
-      <img src={logo} style={{width:'200px',height:'200px',marginTop:'20px'}}/>
-    </div>
-    
+      <div>
+        hoi dan it
+      </div>
+      <div>
+        <img src={logo} style={{width:'200px', height:'200px', marginTop:'20px'}}/>
+      </div>
     </>
   );
-};
+}
 
-export default Color(Home);
+const mapStateToProps = (state) => {
+  return {
+    dataRedux: state.users
+  };
+}
+
+// Connect the component to the Redux store
+export default connect(mapStateToProps)(Color(Home));

@@ -9,9 +9,7 @@ import Nav from './Nav/Nav';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import ListUser from './Users/ListUser';
 import DetailUser from './Users/DetailUser';
-import { store } from './app/store';
-import { Provider } from 'react-redux';
-import rootReducer from '../store/reducers/rootReducer';
+
 const App = () => {
   return (
     <Router>
