@@ -11,8 +11,8 @@ const Home = (props) => {
     console.log('check user delete', user);
     props.deleteUserRedux(user);
   }
-  const handleCreateUser= (user)=>{
-
+  const handleCreateUser= ()=>{
+    props.createUserRedux();
   }
 
   return (
@@ -49,7 +49,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    deleteUserRedux:  (userDelete) => dispatch({type: 'DELETE_USER',payload :userDelete})
+    deleteUserRedux:  (userDelete) => dispatch({type: 'DELETE_USER',payload :userDelete}),
+    createUserRedux: () => dispatch({type:'CREATE_USER'})
   }
 }
 
