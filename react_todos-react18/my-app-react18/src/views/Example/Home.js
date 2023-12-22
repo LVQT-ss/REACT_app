@@ -5,6 +5,15 @@ import { connect } from 'react-redux';
 
 const Home = (props) => {
   console.log('check props ', props.dataRedux);
+  let listUsers = props.dataRedux;
+
+  const handleDeleteUser = (user) => {
+    console.log('check user delete', user);
+    props.deleteUserRedux(user);
+  }
+  const handleCreateUser= (user)=>{
+
+  }
 
   return (
     <>
@@ -13,6 +22,20 @@ const Home = (props) => {
       </div>
       <div>
         <img src={logo} style={{width:'200px', height:'200px', marginTop:'20px'}}/>
+      </div>
+      <div>
+        {listUsers && listUsers.length> 0 && 
+        listUsers.map((item,index) => { 
+          return(
+            <div key={item.id}>
+              {index + 1 } - { item.name} 
+              &nbsp;<span onClick={()=> handleDeleteUser(item)}>x</span>
+            
+            </div>
+          )
+        })
+        }
+        <button onClick={()=> handleCreateUser()}>Add new </button>
       </div>
     </>
   );
@@ -24,5 +47,11 @@ const mapStateToProps = (state) => {
   };
 }
 
+const mapDispatchToProps = (dispatch) => {
+  return {
+    deleteUserRedux:  (userDelete) => dispatch({type: 'DELETE_USER',payload :userDelete})
+  }
+}
+
 // Connect the component to the Redux store
-export default connect(mapStateToProps)(Color(Home));
+export default connect(mapStateToProps,mapDispatchToProps)(Color(Home));
