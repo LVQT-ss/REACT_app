@@ -3,6 +3,9 @@ import Color from "../HOC/Color";
 import logo from '../../assets/images/410097539_731075398566246_6443666808807303612_n.jpg';
 import { connect } from 'react-redux';
 
+
+
+
 const Home = (props) => {
   console.log('check props ', props.dataRedux);
   let listUsers = props.dataRedux;
